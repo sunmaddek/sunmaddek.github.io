@@ -4,7 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sunniva's World 🌱</title>
+  <title>Sunniva — Portfolio</title>
+
+  <meta
+    name="description"
+    content="Sunnivas personlige portfolio og prosjekter."
+  >
 
   <style>
     * {
@@ -13,315 +18,707 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      color: #24536b;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #073b6f;
       min-height: 100vh;
 
       background:
-        radial-gradient(circle at 20% 20%, #ffffff 0 3px, transparent 4px),
-        radial-gradient(circle at 80% 30%, #ffffff 0 4px, transparent 5px),
-        linear-gradient(180deg, #aee8ff 0%, #d9f7ff 45%, #c9f5d1 100%);
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,0.95) 0 5%, transparent 20%),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,0.8) 0 3%, transparent 15%),
+        linear-gradient(135deg, #dff7ff 0%, #8edcff 35%, #2f9bea 70%, #1261b5 100%);
 
-      background-size: 180px 180px, 240px 240px, 100% 100%;
+      background-attachment: fixed;
+      overflow-x: hidden;
     }
 
-    /* Little floating clouds */
-    body::before,
-    body::after {
-      content: "☁️";
+    /* ---------- SKY BUBBLES ---------- */
+
+    .bubble {
       position: fixed;
-      font-size: 70px;
-      opacity: 0.75;
+      border-radius: 50%;
+      pointer-events: none;
       z-index: -1;
-      animation: float 8s ease-in-out infinite;
+
+      background:
+        radial-gradient(
+          circle at 30% 25%,
+          rgba(255,255,255,0.95),
+          rgba(255,255,255,0.25) 25%,
+          rgba(255,255,255,0.08) 55%,
+          transparent 70%
+        );
+
+      border: 2px solid rgba(255,255,255,0.35);
+      box-shadow:
+        inset 5px 5px 15px rgba(255,255,255,0.5),
+        0 10px 35px rgba(0,100,200,0.15);
+
+      animation: float 7s ease-in-out infinite;
     }
 
-    body::before {
-      top: 80px;
-      left: 4%;
+    .bubble.one {
+      width: 130px;
+      height: 130px;
+      left: 5%;
+      top: 20%;
     }
 
-    body::after {
-      right: 5%;
-      top: 250px;
-      font-size: 55px;
-      animation-delay: 2s;
+    .bubble.two {
+      width: 75px;
+      height: 75px;
+      right: 10%;
+      top: 12%;
+      animation-delay: -2s;
+    }
+
+    .bubble.three {
+      width: 180px;
+      height: 180px;
+      right: 2%;
+      bottom: 10%;
+      animation-delay: -4s;
+    }
+
+    .bubble.four {
+      width: 50px;
+      height: 50px;
+      left: 20%;
+      bottom: 12%;
+      animation-delay: -1s;
     }
 
     @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-25px) rotate(8deg);
+      }
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    nav {
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+
+      width: min(1100px, 92%);
+      margin: 15px auto 0;
+      padding: 12px 20px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 22px;
+
+      box-shadow:
+        0 10px 35px rgba(0, 72, 150, 0.18),
+        inset 0 1px rgba(255,255,255,0.9);
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #0755a0;
+      text-shadow: 0 1px white;
+    }
+
+    .logo span {
+      color: #18aeea;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+    }
+
+    nav a {
+      display: block;
+      padding: 9px 14px;
+      border-radius: 14px;
+
+      color: #0755a0;
+      text-decoration: none;
+      font-weight: bold;
+
+      transition: 0.25s ease;
+    }
+
+    nav a:hover {
+      color: white;
+      background: linear-gradient(#35bdf5, #0874ca);
+      box-shadow:
+        0 5px 15px rgba(0,100,200,0.25),
+        inset 0 1px rgba(255,255,255,0.6);
+
+      transform: translateY(-2px);
+    }
+
+    /* ---------- MAIN ---------- */
+
+    main {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      min-height: 85vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+    }
+
+    .hero-card {
+      max-width: 850px;
+      padding: 55px 40px;
+
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border: 2px solid rgba(255,255,255,0.7);
+      border-radius: 40px;
+
+      box-shadow:
+        0 25px 70px rgba(0, 74, 160, 0.22),
+        inset 0 2px rgba(255,255,255,0.9);
+    }
+
+    .cloud {
+      font-size: 4rem;
+      margin-bottom: 10px;
+
+      filter: drop-shadow(0 8px 10px rgba(0,90,180,0.15));
+
+      animation: cloudFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes cloudFloat {
       0%, 100% {
         transform: translateY(0);
       }
 
       50% {
-        transform: translateY(-15px);
+        transform: translateY(-8px);
       }
     }
 
-    /* Main container */
-    .page {
-      width: min(900px, 94%);
-      margin: 25px auto;
-    }
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 1;
+      color: #064f96;
 
-    /* Header */
-    header {
-      background: rgba(255, 255, 255, 0.72);
-      border: 3px solid white;
-      border-radius: 25px;
-      padding: 18px 25px;
-      box-shadow:
-        0 8px 0 rgba(71, 166, 196, 0.25),
-        inset 0 2px 8px white;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 1.35rem;
-      font-weight: bold;
-      color: #2087b0;
-      text-shadow: 1px 2px white;
-    }
-
-    nav a {
-      color: #287b99;
-      text-decoration: none;
-      font-weight: bold;
-      margin-left: 15px;
-      padding: 7px 12px;
-      border-radius: 15px;
-      transition: 0.2s;
-    }
-
-    nav a:hover {
-      background: #b9efff;
-      color: #12617e;
-      box-shadow: inset 0 -2px rgba(41, 130, 157, 0.2);
-    }
-
-    /* Hero */
-    .hero {
-      margin-top: 18px;
-      text-align: center;
-      padding: 45px 20px 40px;
-
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.9),
-        rgba(222,250,255,.78)
-      );
-
-      border: 3px solid white;
-      border-radius: 30px;
-
-      box-shadow:
-        0 10px 0 rgba(71, 166, 196, 0.22),
-        inset 0 3px 12px white;
-    }
-
-    .bubble {
-      display: inline-block;
-      background: #ffb9dc;
-      color: white;
-      border: 3px solid white;
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      transform: rotate(-2deg);
-      box-shadow: 0 3px 0 #d88eb6;
-      margin-bottom: 14px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.2rem, 7vw, 4rem);
-      color: #1685ad;
       text-shadow:
-        2px 2px white,
-        4px 4px rgba(71, 166, 196, .18);
+        0 3px 0 rgba(255,255,255,0.8),
+        0 8px 20px rgba(0,70,150,0.15);
     }
 
-    .hero h1 em {
-      color: #ff83ba;
+    h1 em {
+      color: #13a9e8;
       font-style: normal;
     }
 
     .hero p {
-      max-width: 570px;
-      margin: 12px auto 22px;
-      font-size: 1rem;
+      margin: 25px auto;
+      max-width: 600px;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: #175784;
     }
 
     .button {
       display: inline-block;
-      text-decoration: none;
+      margin-top: 15px;
+      padding: 14px 25px;
+
       color: white;
-
-      background: linear-gradient(#7edfff, #36afd2);
-      border: 3px solid white;
-      border-radius: 20px;
-
-      padding: 9px 20px;
+      text-decoration: none;
       font-weight: bold;
 
-      box-shadow:
-        0 4px 0 #248eae,
-        inset 0 2px 5px rgba(255,255,255,.8);
+      border-radius: 18px;
 
-      transition: .15s;
+      background: linear-gradient(
+        180deg,
+        #48c9ff,
+        #0876cf
+      );
+
+      border: 1px solid rgba(255,255,255,0.8);
+
+      box-shadow:
+        0 8px 20px rgba(0,100,200,0.3),
+        inset 0 2px rgba(255,255,255,0.6);
+
+      transition: 0.25s ease;
     }
 
     .button:hover {
-      transform: translateY(2px);
-      box-shadow:
-        0 2px 0 #248eae,
-        inset 0 2px 5px rgba(255,255,255,.8);
-    }
-
-    /* Sections */
-    section {
-      margin-top: 18px;
-      background: rgba(255,255,255,.76);
-      border: 3px solid white;
-      border-radius: 25px;
-      padding: 25px;
+      transform: translateY(-4px) scale(1.03);
 
       box-shadow:
-        0 7px 0 rgba(71, 166, 196, .18),
-        inset 0 2px 10px white;
+        0 14px 28px rgba(0,100,200,0.35),
+        inset 0 2px rgba(255,255,255,0.8);
     }
 
-    h2 {
-      color: #1885aa;
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-      text-shadow: 1px 1px white;
+    /* ---------- HEADINGS ---------- */
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
     }
 
-    /* About */
-    .about {
-      display: flex;
-      align-items: center;
-      gap: 20px;
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: #064f96;
+      text-shadow: 0 2px white;
     }
 
-    .avatar {
-      min-width: 75px;
-      height: 75px;
+    .section-title p {
+      margin-top: 10px;
+      color: #27668e;
+    }
+
+    /* ---------- PROJECTS ---------- */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .project {
+      padding: 30px;
+
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      border: 2px solid rgba(255,255,255,0.65);
+      border-radius: 28px;
+
+      box-shadow:
+        0 15px 35px rgba(0,80,160,0.16),
+        inset 0 2px rgba(255,255,255,0.8);
+
+      transition: 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+
+      box-shadow:
+        0 25px 50px rgba(0,80,160,0.25),
+        inset 0 2px rgba(255,255,255,0.9);
+    }
+
+    .project-icon {
+      width: 55px;
+      height: 55px;
 
       display: grid;
       place-items: center;
 
-      background: linear-gradient(145deg, #fff, #bceeff);
-      border: 3px solid white;
-      border-radius: 50%;
+      margin-bottom: 18px;
 
-      font-size: 2.3rem;
+      border-radius: 17px;
 
-      box-shadow:
-        0 4px 0 #80c9df,
-        inset 0 3px 7px white;
-    }
+      font-size: 1.7rem;
 
-    /* Projects */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .project {
-      background: #f8fdff;
-      border: 3px solid white;
-      border-radius: 20px;
-      padding: 18px;
+      background: linear-gradient(
+        145deg,
+        #ffffff,
+        #a9e9ff
+      );
 
       box-shadow:
-        0 4px 0 #b2dce9,
-        inset 0 2px 7px white;
-
-      transition: .2s;
-    }
-
-    .project:hover {
-      transform: translateY(-4px) rotate(-1deg);
-    }
-
-    .project:nth-child(2) {
-      background: #fff3fa;
-      box-shadow:
-        0 4px 0 #e6b5d1,
-        inset 0 2px 7px white;
-    }
-
-    .project:nth-child(3) {
-      background: #f2fff3;
-      box-shadow:
-        0 4px 0 #abd8b3,
-        inset 0 2px 7px white;
+        0 8px 15px rgba(0,100,180,0.18),
+        inset 0 2px white;
     }
 
     .project h3 {
-      color: #2585a3;
-      font-size: 1rem;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      color: #07569c;
     }
 
     .project p {
-      font-size: .88rem;
-      margin-bottom: 12px;
+      line-height: 1.6;
+      color: #326785;
+      margin-bottom: 18px;
     }
 
     .project a {
-      color: #ed70ac;
+      color: #078bd0;
       font-weight: bold;
       text-decoration: none;
-      font-size: .9rem;
     }
 
     .project a:hover {
       text-decoration: underline;
     }
 
-    /* Contact */
+    /* ---------- ABOUT ---------- */
+
+    .about-card {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 30px;
+      align-items: center;
+
+      padding: 35px;
+
+      background: rgba(255,255,255,0.62);
+      backdrop-filter: blur(15px);
+
+      border-radius: 30px;
+      border: 2px solid rgba(255,255,255,0.7);
+
+      box-shadow:
+        0 15px 40px rgba(0,80,160,0.17),
+        inset 0 2px white;
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      font-size: 4rem;
+
+      background:
+        radial-gradient(circle at 35% 25%, white, transparent 30%),
+        linear-gradient(145deg, #c7f3ff, #42baf1, #0870c5);
+
+      border: 5px solid rgba(255,255,255,0.8);
+
+      box-shadow:
+        0 12px 30px rgba(0,90,180,0.25),
+        inset 0 3px rgba(255,255,255,0.8);
+    }
+
+    .about-card h3 {
+      color: #07569c;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .about-card p {
+      line-height: 1.7;
+      color: #326785;
+    }
+
+    /* ---------- CONTACT ---------- */
+
     .contact {
       text-align: center;
-      background: linear-gradient(135deg, #eaffff, #fdf0f8);
+    }
+
+    .contact-card {
+      display: inline-block;
+      max-width: 650px;
+      padding: 40px;
+
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(18px);
+
+      border: 2px solid rgba(255,255,255,0.7);
+      border-radius: 30px;
+
+      box-shadow:
+        0 15px 45px rgba(0,80,160,0.2),
+        inset 0 2px white;
     }
 
     .email {
       display: inline-block;
-      margin-top: 5px;
-      color: #e56da6;
+      margin-top: 20px;
+
+      padding: 12px 20px;
+
+      border-radius: 15px;
+
+      background: rgba(214,246,255,0.8);
+      color: #0769ad;
+
+      font-family: monospace;
       font-weight: bold;
-      text-decoration: none;
+
+      border: 1px solid rgba(255,255,255,0.8);
     }
 
-    /* Footer */
+    /* ---------- FOOTER ---------- */
+
     footer {
+      padding: 35px 20px;
       text-align: center;
-      padding: 20px;
-      font-size: .8rem;
-      color: #477b8e;
+
+      color: #dff7ff;
+
+      background: rgba(0,65,130,0.55);
+      backdrop-filter: blur(15px);
+
+      border-top: 1px solid rgba(255,255,255,0.25);
     }
 
-    .sparkles {
-      color: #ff8fc2;
+    footer strong {
+      color: white;
     }
 
-    /* Mobile */
-    @media (max-width: 650px) {
-      header {
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 700px) {
+
+      nav {
         flex-direction: column;
-        padding: 15px;
+        gap: 8px;
       }
 
-      nav a {
-        margin: 0 4px;
-        padding: 6px 7px;
-        font
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .hero-card {
+        padding: 40px 20px;
+        border-radius: 30px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .avatar {
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Decorative bubbles -->
+  <div class="bubble one"></div>
+  <div class="bubble two"></div>
+  <div class="bubble three"></div>
+  <div class="bubble four"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Sunniva<span>●</span></div>
+
+    <ul>
+      <li><a href="#hjem">Hjem</a></li>
+      <li><a href="#prosjekter">Prosjekter</a></li>
+      <li><a href="#om">Om meg</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="hjem">
+      <div class="hero-card">
+
+        <div class="cloud">☁️</div>
+
+        <h1>
+          Hei, jeg heter <em>Sunniva</em> 👋
+        </h1>
+
+        <p>
+          Velkommen til min lille del av internett!
+          Dette er min personlige portfolio, hvor jeg samler
+          prosjekter, ting jeg lager og ting jeg lærer.
+        </p>
+
+        <a class="button" href="#prosjekter">
+          ✦ Se prosjektene mine
+        </a>
+
+      </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="prosjekter">
+
+      <div class="section-title">
+        <h2>✦ Mine prosjekter</h2>
+        <p>Ting jeg har laget, jobbet med eller synes er kule.</p>
+      </div>
+
+      <div class="projects">
+
+        <article class="project">
+          <div class="project-icon">💧</div>
+
+          <h3>Hei – Bluh</h3>
+
+          <p>
+            Et lite prosjekt jeg har laget.
+            Her kan du finne en video relatert til prosjektet.
+          </p>
+
+          <a
+            href="https://www.youtube.com/watch?v=jkngOqdzdas"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Se prosjektet →
+          </a>
+        </article>
+
+
+        <article class="project">
+          <div class="project-icon">🌊</div>
+
+          <h3>Prosjekt 2</h3>
+
+          <p>
+            Dette er plassholderen for mitt neste prosjekt.
+            Jeg kan legge til mer informasjon her senere.
+          </p>
+
+          <a href="#">
+            Kommer snart →
+          </a>
+        </article>
+
+
+        <article class="project">
+          <div class="project-icon">💻</div>
+
+          <h3>Min første nettside</h3>
+
+          <p>
+            Denne nettsiden er publisert med GitHub Pages
+            og er en del av min reise med HTML og webdesign.
+          </p>
+
+          <a href="#hjem">
+            Se nettsiden →
+          </a>
+        </article>
+
+
+        <article class="project">
+          <div class="project-icon">✨</div>
+
+          <h3>Neste prosjekt</h3>
+
+          <p>
+            Et nytt prosjekt er på vei.
+            Kanskje det blir noe interaktivt, kreativt eller helt annet?
+          </p>
+
+          <a href="#kontakt">
+            Følg med →
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="om">
+
+      <div class="section-title">
+        <h2>☁️ Litt om meg</h2>
+      </div>
+
+      <div class="about-card">
+
+        <div class="avatar">
+          🌊
+        </div>
+
+        <div>
+          <h3>Hei! Jeg er Sunniva.</h3>
+
+          <p>
+            Jeg liker å lage ting på nettet og utforske hvordan
+            teknologi, design og kreativitet kan kombineres.
+            Denne portfolioen er et sted hvor jeg kan vise frem
+            det jeg holder på med og lære mer underveis.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="kontakt">
+
+      <div class="section-title">
+        <h2>💌 Kontakt meg</h2>
+        <p>Har du lyst til å si hei?</p>
+      </div>
+
+      <div class="contact-card">
+
+        <p>
+          Du kan kontakte meg på:
+        </p>
+
+        <div class="email">
+          sun.dek.05@gmail.com
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      Laget med 💙 av <strong>Sunniva</strong>
+    </p>
+
+    <p>
+      © 2026 · Publisert med GitHub Pages
+    </p>
+  </footer>
+
+</body>
+</html>

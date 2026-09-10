@@ -154,4 +154,136 @@
     /* Kontakt */
     .contact {
       text-align: center;
-      background: #e8
+      background: #e8f2ff;
+      border-radius: 20px;
+    }
+
+    .email {
+      display: inline-block;
+      margin-top: 15px;
+      color: #0d6efd;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #172033;
+      color: white;
+    }
+
+    /* Mobil */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero {
+        min-height: 65vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">Sunniva.dev</div>
+
+    <div>
+      <a href="#om-meg">Om meg</a>
+      <a href="#prosjekter">Prosjekter</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Hei, jeg heter <em>Sunniva</em> 👋</h1>
+
+    <p>
+      Dette er min personlige portefølje hvor jeg viser frem
+      prosjektene mine og det jeg lærer innen webutvikling.
+    </p>
+
+    <a href="#prosjekter" class="button">Se prosjektene mine ↓</a>
+  </header>
+
+  <section id="om-meg">
+    <h2>Om meg</h2>
+
+    <div class="about">
+      <p>
+        Hei! Jeg heter Sunniva og lærer meg webutvikling.
+        Dette er min første nettside publisert med GitHub Pages.
+        Her kommer jeg til å samle prosjekter, ideer og ting
+        jeg lager mens jeg lærer.
+      </p>
+    </div>
+  </section>
+
+  <section id="prosjekter">
+    <h2>Prosjekter</h2>
+
+    <div class="projects">
+
+      <div class="project">
+        <h3>🎨 Mitt første prosjekt</h3>
+        <p>
+          Et av mine første prosjekter mens jeg lærer HTML og CSS.
+        </p>
+        <br>
+        <a href="https://www.youtube.com/watch?v=jkngOqdzdas"
+           target="_blank">
+          Se prosjektet →
+        </a>
+      </div>
+
+      <div class="project">
+        <h3>💻 Prosjekt 2</h3>
+        <p>
+          Et nytt prosjekt jeg jobber med. Mer informasjon kommer!
+        </p>
+        <br>
+        <a href="#">
+          Les mer →
+        </a>
+      </div>
+
+      <div class="project">
+        <h3>🚀 Kommer snart</h3>
+        <p>
+          Her kan du legge til flere prosjekter etter hvert som
+          du lager dem.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="contact">
+      <h2>Kontakt meg</h2>
+
+      <p>
+        Har du lyst til å ta kontakt? Send meg gjerne en e-post!
+      </p>
+
+      <a class="email" href="mailto:sun.dek.05@gmail.com">
+        sun.dek.05@gmail.com
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Sunniva · Laget med HTML & CSS 💙</p>
+  </footer>
+
+</body>
+</html>

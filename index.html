@@ -3,165 +3,301 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sunniva | Portefølje</title>
+
+  <title>Sunniva's World 🌱</title>
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f5f9ff;
-      color: #172033;
-      line-height: 1.6;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: #24536b;
+      min-height: 100vh;
+
+      background:
+        radial-gradient(circle at 20% 20%, #ffffff 0 3px, transparent 4px),
+        radial-gradient(circle at 80% 30%, #ffffff 0 4px, transparent 5px),
+        linear-gradient(180deg, #aee8ff 0%, #d9f7ff 45%, #c9f5d1 100%);
+
+      background-size: 180px 180px, 240px 240px, 100% 100%;
     }
 
-    /* Navigasjon */
-    nav {
-      background: #0d6efd;
-      padding: 18px 8%;
+    /* Little floating clouds */
+    body::before,
+    body::after {
+      content: "☁️";
+      position: fixed;
+      font-size: 70px;
+      opacity: 0.75;
+      z-index: -1;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    body::before {
+      top: 80px;
+      left: 4%;
+    }
+
+    body::after {
+      right: 5%;
+      top: 250px;
+      font-size: 55px;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* Main container */
+    .page {
+      width: min(900px, 94%);
+      margin: 25px auto;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.72);
+      border: 3px solid white;
+      border-radius: 25px;
+      padding: 18px 25px;
+      box-shadow:
+        0 8px 0 rgba(71, 166, 196, 0.25),
+        inset 0 2px 8px white;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      gap: 20px;
     }
 
-    nav .logo {
-      font-size: 1.4rem;
+    .logo {
+      font-size: 1.35rem;
       font-weight: bold;
+      color: #2087b0;
+      text-shadow: 1px 2px white;
     }
 
     nav a {
-      color: white;
+      color: #287b99;
       text-decoration: none;
-      margin-left: 25px;
       font-weight: bold;
+      margin-left: 15px;
+      padding: 7px 12px;
+      border-radius: 15px;
+      transition: 0.2s;
     }
 
     nav a:hover {
-      opacity: 0.8;
+      background: #b9efff;
+      color: #12617e;
+      box-shadow: inset 0 -2px rgba(41, 130, 157, 0.2);
     }
 
     /* Hero */
     .hero {
-      min-height: 75vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      margin-top: 18px;
       text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #0d6efd, #5aa9ff);
+      padding: 45px 20px 40px;
+
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.9),
+        rgba(222,250,255,.78)
+      );
+
+      border: 3px solid white;
+      border-radius: 30px;
+
+      box-shadow:
+        0 10px 0 rgba(71, 166, 196, 0.22),
+        inset 0 3px 12px white;
+    }
+
+    .bubble {
+      display: inline-block;
+      background: #ffb9dc;
       color: white;
+      border: 3px solid white;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      transform: rotate(-2deg);
+      box-shadow: 0 3px 0 #d88eb6;
+      margin-bottom: 14px;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 7vw, 5rem);
-      margin-bottom: 15px;
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      color: #1685ad;
+      text-shadow:
+        2px 2px white,
+        4px 4px rgba(71, 166, 196, .18);
     }
 
-    .hero em {
-      color: #d9ecff;
+    .hero h1 em {
+      color: #ff83ba;
       font-style: normal;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 30px;
+      max-width: 570px;
+      margin: 12px auto 22px;
+      font-size: 1rem;
     }
 
     .button {
       display: inline-block;
-      background: white;
-      color: #0d6efd;
-      padding: 12px 25px;
-      border-radius: 30px;
       text-decoration: none;
+      color: white;
+
+      background: linear-gradient(#7edfff, #36afd2);
+      border: 3px solid white;
+      border-radius: 20px;
+
+      padding: 9px 20px;
       font-weight: bold;
-      transition: 0.3s;
+
+      box-shadow:
+        0 4px 0 #248eae,
+        inset 0 2px 5px rgba(255,255,255,.8);
+
+      transition: .15s;
     }
 
     .button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(2px);
+      box-shadow:
+        0 2px 0 #248eae,
+        inset 0 2px 5px rgba(255,255,255,.8);
     }
 
-    /* Seksjoner */
+    /* Sections */
     section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 80px 20px;
+      margin-top: 18px;
+      background: rgba(255,255,255,.76);
+      border: 3px solid white;
+      border-radius: 25px;
+      padding: 25px;
+
+      box-shadow:
+        0 7px 0 rgba(71, 166, 196, .18),
+        inset 0 2px 10px white;
     }
 
-    section h2 {
-      text-align: center;
-      color: #0d6efd;
-      font-size: 2rem;
-      margin-bottom: 40px;
+    h2 {
+      color: #1885aa;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      text-shadow: 1px 1px white;
     }
 
-    /* Om meg */
+    /* About */
     .about {
-      text-align: center;
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
-    /* Prosjekter */
+    .avatar {
+      min-width: 75px;
+      height: 75px;
+
+      display: grid;
+      place-items: center;
+
+      background: linear-gradient(145deg, #fff, #bceeff);
+      border: 3px solid white;
+      border-radius: 50%;
+
+      font-size: 2.3rem;
+
+      box-shadow:
+        0 4px 0 #80c9df,
+        inset 0 3px 7px white;
+    }
+
+    /* Projects */
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
 
     .project {
-      background: white;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(13, 110, 253, 0.08);
-      border: 1px solid #e0edff;
-      transition: 0.3s;
+      background: #f8fdff;
+      border: 3px solid white;
+      border-radius: 20px;
+      padding: 18px;
+
+      box-shadow:
+        0 4px 0 #b2dce9,
+        inset 0 2px 7px white;
+
+      transition: .2s;
     }
 
     .project:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 15px 35px rgba(13, 110, 253, 0.15);
+      transform: translateY(-4px) rotate(-1deg);
+    }
+
+    .project:nth-child(2) {
+      background: #fff3fa;
+      box-shadow:
+        0 4px 0 #e6b5d1,
+        inset 0 2px 7px white;
+    }
+
+    .project:nth-child(3) {
+      background: #f2fff3;
+      box-shadow:
+        0 4px 0 #abd8b3,
+        inset 0 2px 7px white;
     }
 
     .project h3 {
-      color: #0d6efd;
-      margin-bottom: 10px;
+      color: #2585a3;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .project p {
+      font-size: .88rem;
+      margin-bottom: 12px;
     }
 
     .project a {
-      color: #0d6efd;
+      color: #ed70ac;
       font-weight: bold;
       text-decoration: none;
+      font-size: .9rem;
     }
 
     .project a:hover {
       text-decoration: underline;
     }
 
-    /* Kontakt */
+    /* Contact */
     .contact {
       text-align: center;
-      background: #e8f2ff;
-      border-radius: 20px;
+      background: linear-gradient(135deg, #eaffff, #fdf0f8);
     }
 
     .email {
       display: inline-block;
-      margin-top: 15px;
-      color: #0d6efd;
+      margin-top: 5px;
+      color: #e56da6;
       font-weight: bold;
       text-decoration: none;
     }
@@ -169,121 +305,23 @@
     /* Footer */
     footer {
       text-align: center;
-      padding: 30px;
-      background: #172033;
-      color: white;
+      padding: 20px;
+      font-size: .8rem;
+      color: #477b8e;
     }
 
-    /* Mobil */
-    @media (max-width: 600px) {
-      nav {
+    .sparkles {
+      color: #ff8fc2;
+    }
+
+    /* Mobile */
+    @media (max-width: 650px) {
+      header {
         flex-direction: column;
-        gap: 10px;
+        padding: 15px;
       }
 
       nav a {
-        margin: 0 8px;
-      }
-
-      .hero {
-        min-height: 65vh;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <nav>
-    <div class="logo">Sunniva.dev</div>
-
-    <div>
-      <a href="#om-meg">Om meg</a>
-      <a href="#prosjekter">Prosjekter</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
-  </nav>
-
-  <header class="hero">
-    <h1>Hei, jeg heter <em>Sunniva</em> 👋</h1>
-
-    <p>
-      Dette er min personlige portefølje hvor jeg viser frem
-      prosjektene mine og det jeg lærer innen webutvikling.
-    </p>
-
-    <a href="#prosjekter" class="button">Se prosjektene mine ↓</a>
-  </header>
-
-  <section id="om-meg">
-    <h2>Om meg</h2>
-
-    <div class="about">
-      <p>
-        Hei! Jeg heter Sunniva og lærer meg webutvikling.
-        Dette er min første nettside publisert med GitHub Pages.
-        Her kommer jeg til å samle prosjekter, ideer og ting
-        jeg lager mens jeg lærer.
-      </p>
-    </div>
-  </section>
-
-  <section id="prosjekter">
-    <h2>Prosjekter</h2>
-
-    <div class="projects">
-
-      <div class="project">
-        <h3>🎨 Mitt første prosjekt</h3>
-        <p>
-          Et av mine første prosjekter mens jeg lærer HTML og CSS.
-        </p>
-        <br>
-        <a href="https://www.youtube.com/watch?v=jkngOqdzdas"
-           target="_blank">
-          Se prosjektet →
-        </a>
-      </div>
-
-      <div class="project">
-        <h3>💻 Prosjekt 2</h3>
-        <p>
-          Et nytt prosjekt jeg jobber med. Mer informasjon kommer!
-        </p>
-        <br>
-        <a href="#">
-          Les mer →
-        </a>
-      </div>
-
-      <div class="project">
-        <h3>🚀 Kommer snart</h3>
-        <p>
-          Her kan du legge til flere prosjekter etter hvert som
-          du lager dem.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="kontakt">
-    <div class="contact">
-      <h2>Kontakt meg</h2>
-
-      <p>
-        Har du lyst til å ta kontakt? Send meg gjerne en e-post!
-      </p>
-
-      <a class="email" href="mailto:sun.dek.05@gmail.com">
-        sun.dek.05@gmail.com
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Sunniva · Laget med HTML & CSS 💙</p>
-  </footer>
-
-</body>
-</html>
+        margin: 0 4px;
+        padding: 6px 7px;
+        font
